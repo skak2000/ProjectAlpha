@@ -58,6 +58,12 @@ namespace BusinessLogicLayer
             return respont;
         }
 
+        public void CompanyCreate(Company input)
+        {
+            input.CompanyID = Guid.NewGuid();
+            db.CompanyCreate(input);
+        }
+
         public void ReviewCreate(Review input)
         {
             // Do not do this!!! Save on database

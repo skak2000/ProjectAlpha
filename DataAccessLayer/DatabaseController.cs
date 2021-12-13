@@ -68,6 +68,12 @@ namespace DataAccessLayer
             fake.SaveData(database);
         }
 
+        public void CompanyCreate(Company input)
+        {
+             database.CompanyList.Add(input);
+             fake.SaveData(database);
+        }
+
         public void ReviewDelete(Guid reviewID)
         {
             Review dbValue = database.ReviewList.FirstOrDefault(x => x.ReviewID == reviewID);

@@ -5,7 +5,7 @@ using System;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void TestGetUserByID()

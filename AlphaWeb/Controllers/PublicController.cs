@@ -46,5 +46,33 @@ namespace WebAlpha.Controllers
 
             return this.File(respont, "image/jpg", "image.jpg");
         }
+
+        public ActionResult CreateCompany()
+        {
+            Company model = new Company();
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateCompany(Company input)
+        {
+            bc.CompanyCreate(input);
+            return RedirectToAction("Index", "public");
+        }
+
+        public ActionResult CreateUser()
+        {
+            User model = new User();
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateUser(User input)
+        {
+            bc.CreateUser(input);
+            return RedirectToAction("UserList", "public");
+        }
     }
 }
