@@ -1,0 +1,33 @@
+﻿@model Model.WebModel.Company
+
+@{
+    ViewData["Title"] = "ShowCompany";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Name</h1>
+<div class="row">
+@Html.ActionLink("Back", "Index", "public", null, new { @class = "btn btn-primary"})
+</div>
+
+<div class="row">
+    @await Html.PartialAsync("Partial/CompanyView", Model)
+</div>
+
+<div class="row">
+    @await Html.PartialAsync("Partial/GoogleMapView", Model)
+</div>
+
+<div class="row" style="padding-top:15px">     
+    @Html.ActionLink("Opret Review", "CreateReview", "private", new { id=Model.CompanyID }, new { @class = "btn btn-primary"})
+</div>
+
+<div class="row">
+    @await Html.PartialAsync("Partial/ReviewList", Model.ReviewList)
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

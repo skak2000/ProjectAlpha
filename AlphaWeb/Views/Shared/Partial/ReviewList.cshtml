@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Model.WebModel.Review>
+
+<h1>ReviewList</h1>
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TasteRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TextureRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VisualRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+             <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TasteRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextureRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisualRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Timestamp)
+            </td>
+            <td>
+                <img src="~/images/Burger1.jpg" class="detailImage" height="75" />
+               @* <img src="data:image;base64,@Url.Action("Image","public", item))" width="80" height="80"/>  *@  
+               @*<img src="@Url.Action("Image","public", item)"/>*@
+
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>            
+        </tr>
+}
+    </tbody>
+</table>

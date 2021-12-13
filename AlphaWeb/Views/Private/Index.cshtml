@@ -1,0 +1,15 @@
+﻿@model Model.WebModel.User
+@{
+    ViewData["Title"] = "UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.UserName</h1>
+
+<div class="row">
+    @await Html.PartialAsync("Partial/ProfileView", Model)
+</div>
+
+<div class="row">
+    @await Html.PartialAsync("Partial/ReviewList", Model.ReviewList)
+</div>

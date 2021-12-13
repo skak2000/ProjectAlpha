@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Model.WebModel.UserPublic>
+
+@{
+    ViewData["Title"] = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>UserList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>           
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfileText)
+            </th>  
+            <th>
+                Review counter
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewList.Count)
+            </td>
+            <td>
+                @Html.ActionLink("View profile", "ViewProfile", new { id=item.UserID  }, new { @class = "btn btn-primary"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

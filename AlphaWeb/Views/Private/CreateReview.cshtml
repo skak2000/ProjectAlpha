@@ -1,0 +1,57 @@
+﻿@model Model.WebModel.Review
+
+@{
+    ViewData["Title"] = "CreateReview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateReview</h1>
+
+<h4>Review</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+       <form asp-action="CreateReview"  asp-controller="Private" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="CompanyID" type="hidden"/>
+            
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TasteRating" class="control-label"></label>
+                <input asp-for="TasteRating" class="form-control" />
+                <span asp-validation-for="TasteRating" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TextureRating" class="control-label"></label>
+                <input asp-for="TextureRating" class="form-control" />
+                <span asp-validation-for="TextureRating" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="VisualRating" class="control-label"></label>
+                <input asp-for="VisualRating" class="form-control" />
+                <span asp-validation-for="VisualRating" class="text-danger"></span>
+            </div>            
+           
+            <div class="form-group">
+               <div class="custom-file">
+                     <input asp-for="Image" type="file" class="custom-file-input fileUpload" />
+                     <label class="custom-file-label fileLabel">Choose file</label>
+               </div>
+            </div>            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
